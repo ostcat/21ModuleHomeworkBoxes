@@ -11,7 +11,6 @@ public class Example : MonoBehaviour
     
     private const int LeftMouseClick = 0;
     private const int RightMouseClick = 1;
-
     private Camera _camera;
     private ItemManipulator _itemManipulator;
     private Ray _mouseRay;
