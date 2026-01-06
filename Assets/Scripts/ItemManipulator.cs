@@ -15,7 +15,7 @@ public class ItemManipulator
     {
         if (Physics.Raycast(ray, out RaycastHit hit, Mathf.Infinity, mask.value))
         {
-            _heldItemRigidbody = hit.collider.gameObject.GetComponent<Rigidbody>();
+            _heldItemRigidbody = hit.collider.GetComponent<Rigidbody>();
 
             if (_heldItemRigidbody != null)
             {

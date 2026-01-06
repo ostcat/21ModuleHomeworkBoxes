@@ -7,7 +7,8 @@ public class Example : MonoBehaviour
     [SerializeField] private float _explosionForce;
     [SerializeField] private float _upwardModifier;
     [SerializeField] private float _explosionRadius;
-    [SerializeField] private ExplosionPusher _explosionPusher;
+    [SerializeField] private ParticleSystem _explosionPrefab;
+    private ExplosionPusher _explosionPusher;
     
     private const int LeftMouseClick = 0;
     private const int RightMouseClick = 1;
@@ -19,6 +20,7 @@ public class Example : MonoBehaviour
     {
         _camera = Camera.main;
         _itemManipulator = new ItemManipulator(_camera);
+        _explosionPusher = new ExplosionPusher();
     }
 
     private void Update()
@@ -38,7 +40,7 @@ public class Example : MonoBehaviour
 
         if (Input.GetMouseButtonDown(RightMouseClick))
         {
-            _explosionPusher.ThrowBomb(_mouseRay.origin, _mouseRay.direction, _layerMaskGround);
+            _explosionPusher.ThrowBomb(_explosionPrefab, _mouseRay.origin, _mouseRay.direction, _layerMaskGround);
         }
     }
 
